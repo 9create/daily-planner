@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Daily Planner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e6f7ff;
+            color: #333;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #007acc;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        input[type="text"], textarea, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskList = document.getElementById("taskList");
+            if (taskInput.value.trim() !== "") {
+                const li = document.createElement("li");
+                li.innerHTML = '<input type="checkbox"> ' + taskInput.value;
+                taskList.appendChild(li);
+                taskInput.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>My Daily Planner</h1>
+    <div class="section">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+    </div>
+    <div class="section">
+        <label for="taskInput">To-Do:</label>
+        <input type="text" id="taskInput" placeholder="Enter a new task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+    <div class="section">
+        <label for="notes">Notes:</label>
+        <textarea id="notes" rows="6" placeholder="Write your notes here..."></textarea>
+    </div>
+</body>
+</html>
